@@ -1,6 +1,5 @@
 package step3_3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BuildingTest {
@@ -70,6 +69,7 @@ public class BuildingTest {
 			}
 			System.out.println("#" + tc + " " + max);
 		}
+		sc.close();
 	}
 
 }
