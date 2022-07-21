@@ -1,4 +1,4 @@
-package 클래스와객체;
+package step4_2;
 
 public class Movie {
 		private int id;
