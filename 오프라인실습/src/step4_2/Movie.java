@@ -24,7 +24,6 @@ public class Movie {
 		}
 		
 		
-
 		@Override
 		public String toString() {
 			return "Movie [id=" + id + ", title=" + title + ", director=" + director + ", genre=" + genre
@@ -71,6 +70,5 @@ public class Movie {
 		public void setRunningTime(int runningTime) {
 			this.runningTime = runningTime;
 		}
-		
 		
 }
