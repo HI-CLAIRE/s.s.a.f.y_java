@@ -1,6 +1,6 @@
 package SWEA;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Scanner;
 
 public class 쉬운거스름돈_1970 {
@@ -32,6 +32,7 @@ public class 쉬운거스름돈_1970 {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 
 }
