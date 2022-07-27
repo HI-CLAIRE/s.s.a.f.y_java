@@ -1,6 +1,6 @@
 package d2;
 
-import java.util.Scanner;
+import java.util.Scanner; //커밋되나?
 
 public class 숫자배열회전_1961 {
 	private static int[][] turn(int[][] arr, int N) {
