@@ -70,7 +70,7 @@ public class UserManagerImpl implements IUserManager {
 		//3. 갯수만큼의 tmp배열을 반환
 		int cnt = 0;
 		for(int i=0; i<size; i++)
-			if(userList[i].get
+			if(userList[i] 
 		
 	}
 
