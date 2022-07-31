@@ -1,36 +1,25 @@
-package hw7_2;
+package hw10_2;
 
-public class User {
+import java.io.Serializable;
+
+// 직렬화에 필요한 인터페이스 사용하기
+public class User implements Serializable{
+
 	private String id;
 	private String password;
 	private String name;
 	private String email;
 	private int age;
 	
-	public User() {
-		super();
-	}
+	public User() {}
 
 	public User(String id, String password, String name, String email, int age) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
-		this.age = age;
-	}
-
-	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", age=" + age + "]";
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
 		this.email = email;
+		this.age = age;
 	}
 
 	public String getId() {
@@ -57,6 +46,14 @@ public class User {
 		this.name = name;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -64,7 +61,11 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", age=" + age
+				+ "]";
+	}
 	
 }

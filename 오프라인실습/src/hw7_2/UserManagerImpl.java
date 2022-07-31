@@ -1,82 +1,121 @@
 package hw7_2;
 
+import java.util.Arrays;
+
+// IUserManager 의 실제 구현, IUserManager 에 정의된 메소드들을 모두 구현 해야한다.
 public class UserManagerImpl implements IUserManager {
 	private final int MAX_SIZE = 100;
 	private User[] userList = new User[MAX_SIZE];
 	private int size = 0;
 	
-	private static IUserManager um = new UserManagerImpl();
+	// 싱글톤 패턴을 위한 객체 생성, 알맞은 접근 제어자 설정
+	private static UserManagerImpl um = new UserManagerImpl();
 	
-	private UserManagerImpl() {}
+	// 싱글톤 패턴의 기본 생성자, 객체 생성을 외부에서 하지 못하게 막음
+	private UserManagerImpl() {};
 	
-	public static IUserManager getInstance() {
+	// 외부에서 사용할 수 있도록 UserManagerImpl 인스턴스 반환
+	public static UserManagerImpl getInstance() {
 		return um;
 	}
 
-	@Override
 	public void add(User user) {
-		if(size < MAX_SIZE)
+		if (size < MAX_SIZE) {
 			userList[size++] = user;
+		} else {
+			System.out.println("유저의 수가 100을 넘었습니다. 등록 불가.");
+		}
 	}
 
-	@Override
 	public User[] getList() {
-		User[] tmp = new User[size];
-		for(int i=0; i<size; i++)
-			tmp[i] = userList[i];
-		return tmp;
+
+		return Arrays.copyOfRange(userList, 0, size);
 	}
 
-	@Override
 	public User[] getUsers() {
+
 		int cnt = 0;
-		for(int i=0; i<size; i++)
-		{
-			if(!(userList[i] instanceof VipUser))
+
+		for (int i = 0; i < this.size; i++) {
+			if (!(userList[i] instanceof VipUser)) {
 				cnt++;
-		}		
-		VipUser[] tmp = new VipUser[cnt]; //vipuser 수가 cnt
-		cnt = 0;
-		for(int i=0; i<size; i++)
-		{
-			if(!(userList[i] instanceof VipUser))
-				tmp[cnt++] = (VipUser) userList[i];
+			}
 		}
-		return tmp;
+
+		if (cnt == 0)
+			return null;
+
+		User[] res = new User[cnt];
+
+		for (int i = 0, index = 0; i < this.size; i++) {
+			if (!(userList[i] instanceof VipUser)) {
+				res[index++] = userList[i];
+			}
+		}
+
+		return res;
+
 	}
 
-	@Override
 	public VipUser[] getVipUsers() {
+
 		int cnt = 0;
-		for(int i=0; i<size; i++)
-		{
-			if(userList[i] instanceof VipUser)
+
+		for (int i = 0; i < this.size; i++) {
+			if (userList[i] instanceof VipUser) {
 				cnt++;
-		}		
-		VipUser[] tmp = new VipUser[cnt]; //vipuser 수가 cnt
-		cnt = 0;
-		for(int i=0; i<size; i++)
-		{
-			if(userList[i] instanceof VipUser)
-				tmp[cnt++] = (VipUser) userList[i];
+			}
 		}
-		return tmp;
+
+		if (cnt == 0)
+			return null;
+
+		VipUser[] res = new VipUser[cnt];
+
+		for (int i = 0, index = 0; i < this.size; i++) {
+			if (userList[i] instanceof VipUser) {
+				res[index++] = (VipUser) userList[i];
+			}
+		}
+
+		return res;
+
 	}
 
-	@Override
-	public User[] searchByName(String keyword) {
-		//1. 찾고
-		//2. 찾은 거의 갯수
-		//3. 갯수만큼의 tmp배열을 반환
+	public User[] searchByName(String name) {
+
 		int cnt = 0;
-		for(int i=0; i<size; i++)
-			if(userList[i] 
-		
+
+		for (int i = 0; i < this.size; i++) {
+			if (userList[i].getName().contains(name)) {
+				cnt++;
+			}
+		}
+
+		if (cnt == 0)
+			return null;
+
+		User[] res = new User[cnt];
+
+		for (int i = 0, index = 0; i < this.size; i++) {
+			if (userList[i].getName().contains(name)) {
+				res[index++] = userList[i];
+			}
+		}
+
+		return res;
 	}
 
-	@Override
 	public double getAgeAvg() {
-		
-		return 0;
+
+		int sum = 0;
+
+		for (int i = 0; i < this.size; i++) {
+			sum += userList[i].getAge();
+		}
+
+		return sum / this.size;
+
 	}
+
 }

@@ -1,6 +1,6 @@
-package hw7_2;
+package hw6_2;
 
-public class VipUser extends User {
+public class VipUser extends User{
 	private String grade;
 	private int point;
 	public VipUser() {
@@ -13,7 +13,7 @@ public class VipUser extends User {
 	}
 	@Override
 	public String toString() {
-		return "VipUser [grade=" + grade + ", point=" + point + "]";
+		return "VipUser [name=" + getName() + "grade=" + grade + ", point=" + point + "]";
 	}
 	public String getGrade() {
 		return grade;
@@ -27,4 +27,6 @@ public class VipUser extends User {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	
+	
 }
