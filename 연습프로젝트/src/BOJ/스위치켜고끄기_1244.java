@@ -9,44 +9,37 @@ public class 스위치켜고끄기_1244 {
 			Scanner sc = new Scanner(System.in);
 			
 			int N = sc.nextInt();
-			int[] arr = new int[N];
+			int[] arr = new int[N+1]; //0번을 안 쓸거임 
 
-			for(int i = 0; i < N; i++)
+			for(int i = 1; i < N+1; i++)
 				arr[i] = sc.nextInt();
-
-			int stdts = sc.nextInt();
-			for(int i = 0; i < stdts; i++) {
-				
+			
+			int st = sc.nextInt();
+			for(int s=0; s<st; s++) {
 				int gender = sc.nextInt();
-				int num = sc.nextInt();
-
-				if(gender == 1)
-					for(int j = num; j < N; j += num)
-						arr[j - 1] = (arr[j - 1] + 1) % 2;
-
-				if(gender == 2) {
-					arr[num - 1] = (arr[num - 1] + 1) % 2;
-					for(int k = 1; (0 <= (num - 1 - k)) && ((num - 1 + k) < N); k++) {
-						if(arr[num - 1 - k] != arr[num - 1 + k])
-						break;
-						arr[num - 1 - k] = (arr[num - 1 - k] + 1) % 2;
-						arr[num - 1 + k] = (arr[num - 1 + k] + 1) % 2;
+				int pos = sc.nextInt();  //position
+				if(gender == 1) {
+					for(int i=1; i*pos<=N; i++)
+						arr[pos*i] = 1 - arr[pos*i];
+				}
+				else if(gender == 2) {
+					arr[pos] = 1 - arr[pos];
+					for(int i=1; pos+i<=N&&pos-i>0; i++) {
+						if(arr[pos+i] != arr[pos-i])
+							break;
+						else {
+							arr[pos+i] = 1 - arr[pos+i];
+							arr[pos-i] = 1 - arr[pos-i];
+						}
 					}
 				}
 			}
 			
-			for(int i = 0; i < N; i++) {
+			for(int i = 1; i < N+1; i++) {
+				System.out.print(arr[i] + " ");
 				if(i%20 == 0)
-					System.out.println(arr[i]);
-				else if((i + 1) % 20 == 0)
 					System.out.println();
-				else
-					System.out.print(arr[i] + " ");
 			}
-
-
 			sc.close();
-	
-	}
-
+		}
 }
