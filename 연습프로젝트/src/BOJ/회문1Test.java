@@ -18,7 +18,7 @@ public class 회문1Test {
 			String str = map[i].toString();
 			String cmp = "";
 			StringBuffer cmpsb = new StringBuffer(str);
-			String rev = "";
+			String rev = ""; 
 			
 			for(int j=i; i+j<8; j++) {
 				for(int k=0; k<n; n++) {
