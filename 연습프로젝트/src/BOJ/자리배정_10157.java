@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class 자리배정_10157 {
 
+	///////망한코드~~~~~~~~~~~~
+	
+	
 	static boolean judgeDir(int[][] map, int x, int y, int dir, int X, int Y) {
 		
 		switch(dir) {
@@ -21,8 +24,8 @@ public class 자리배정_10157 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int X = sc.nextInt();
 		int Y = sc.nextInt();
+		int X = sc.nextInt();
 		int K = sc.nextInt();
 		int[][] map = new int[X][Y];
 		
