@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class 개미_10158_2 {
 
 	public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		int W = sc.nextInt();
 		int H = sc.nextInt();
@@ -23,6 +23,8 @@ Scanner sc = new Scanner(System.in);
 			Y = Math.abs(H*2 - Y);
 		
 		System.out.println(X + " " + Y);
+		
+		sc.close();
 	}
 
 }
