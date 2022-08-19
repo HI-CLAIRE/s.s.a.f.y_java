@@ -17,11 +17,9 @@ public class 카드2_2164 {
 			q.offer(i);
 
 		while(q.size() > 1) {
-			for(int i=0; i<1; i++) {
-				q.poll();
-				int num = q.poll();
-				q.offer(num);
-			}
+			q.poll();
+			int num = q.poll();
+			q.offer(num);
 		}
 
 		System.out.println(q.peek());
