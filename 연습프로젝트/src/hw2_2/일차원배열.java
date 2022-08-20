@@ -24,6 +24,6 @@ public class 일차원배열 {
 		System.out.println("-----원소 10개 출력-----");
 		arr[repl] = num;
 		for(int i=0; i<10; i++)
-			System.out.print(arr[i] + " "); 
+			System.out.print(arr[i] + " ");  
 	}
 }
