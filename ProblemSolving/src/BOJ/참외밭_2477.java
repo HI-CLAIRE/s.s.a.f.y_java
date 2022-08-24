@@ -11,17 +11,25 @@ public class 참외밭_2477 {
 		int melon = sc.nextInt();
 		
 		int[][] arr = new int[6][2];
-		boolean flag = false;
-		int maxSq = 0, minSq = 0, ans = 0;
+		int[] cnt = new int[5];
+		int ans = 1;
 		
 		for(int i=0; i<6; i++) {
-			int dir = arr[i][0];
-			int val = arr[i][1];
-			dir = sc.nextInt();
-			val = sc.nextInt();
-			
-			
+			int dir = sc.nextInt();
+			int val = sc.nextInt();
+			arr[i][0] = dir;
+			arr[i][1] = val;
+			cnt[dir]++;
 		}
+		
+		int minSq = 1;
+		for(int i=0; i<6; i++) {
+			if(cnt[arr[i][0]] == 1) { 
+				ans *= arr[i][1];
+				minSq *= arr[(i+3)%6][1];
+			}
+		}
+		ans -= minSq;
 		System.out.println(ans * melon);
 	}
 
