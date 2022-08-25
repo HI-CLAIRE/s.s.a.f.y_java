@@ -31,25 +31,23 @@ public class 오목판정 {
 			int cnt=1;
 			boolean omoq = false;
 			
-			for(int y=0; y<N; y++) {
+			out : for(int y=0; y<N; y++) {
 				for(int x=0; x<N; x++) {
 					if(map[y][x] == 'o') {
-						out: for(int d=0; d<4; d++) {
-							int nx = x + dx[d] * cnt, ny = y + dy[d] * cnt;
-							
-							// 범위 벗어났을 때 어떻게 하지???
-							if(nx>=N || ny>=N || nx<0 || ny<0) break out;
-							
-							if(map[ny][nx] == 'o') cnt++;
-							if(cnt >= 5) omoq = true;
-							
-							x = nx; y = ny;
+						for(int d=0; d<4; d++) {
+							for(cnt=1; cnt<=5; cnt++) {	
+								if(cnt >= 5) { 
+									omoq = true;
+									break out;
+								}
+								int nx = x + dx[d] * cnt, ny = y + dy[d] * cnt;
+								if(nx>=N || ny>=N || nx<0 || ny<0) break;
+								if(map[ny][nx] != 'o') break;
+							}
 						}
 					}
 				}
 			}
-			
-			System.out.println("cnt : " + cnt);
 			if(omoq) sb.append("YES").append("\n");
 			else sb.append("NO").append("\n");
 		}
