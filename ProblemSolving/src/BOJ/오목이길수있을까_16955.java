@@ -25,7 +25,7 @@ public class 오목이길수있을까_16955 {
 		for(int y=0;y<10; y++) {
 			for(int x=0; x<10;x++) {
 				if(map[y][x] == 'X') {
-					out : for(int d=0; d<4; d++) {
+					for(int d=0; d<4; d++) {
 						for(int cnt=1; cnt<=5; cnt++) {
 							if(cnt >= 4) System.out.println(1);
 							else System.out.println(0);
@@ -33,7 +33,7 @@ public class 오목이길수있을까_16955 {
 							int nx = x + dx[d] * cnt;
 							int ny = y + dy[d] * cnt;
 
-							if(map[ny][nx] == 'O') break out;
+							if(map[ny][nx] == 'O') break;
 							if(ny>=10 || nx>=10 || ny<0 || nx<0) continue;
 							
 						}
