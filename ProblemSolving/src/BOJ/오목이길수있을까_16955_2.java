@@ -23,7 +23,7 @@ public class 오목이길수있을까_16955_2 {
 		for(int y=0;y<10; y++) {
 			for(int x=0; x<10;x++) {
 				if(map[y][x] == 'X') {
-					for(int d=0; d<5; d++) {
+					for(int d=0; d<8; d++) {
 						int cnt = 1;
 						for(int i=1; i<5;i++) {
 							int nx = x + dx[d] * i;
