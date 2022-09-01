@@ -1,0 +1,10 @@
+package B1;
+
+public class 팰린드롬수 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package S4;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class 제로_10773 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int N = sc.nextInt();
+		Stack<Integer> s = new Stack<>();
+		for(int i=0; i<N; i++) {
+			if(!s.isEmpty() && sc.nextInt() == 0)
+				s.remove(s.lastElement());
+			else s.push(sc.nextInt());
+		}
+		if(s.isEmpty()) System.out.println(0);
+		
+		int sum = 0;
+		while(!s.isEmpty()) {
+			sum += s.pop();
+		}
+	}
+
+}

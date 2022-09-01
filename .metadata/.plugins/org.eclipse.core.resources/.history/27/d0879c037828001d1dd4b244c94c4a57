@@ -1,0 +1,10 @@
+package 다들_이런적_있죠;
+
+public class 클래스명이_다를_때 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
