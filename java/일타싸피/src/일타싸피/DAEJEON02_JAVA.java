@@ -9,7 +9,7 @@ public class DAEJEON02_JAVA {
 	static final String NICKNAME = "DAEJEON02_JAVA";
 	
 	// 일타싸피 프로그램을 로컬에서 실행할 경우 변경하지 않습니다.
-	static final String HOST = "10.37.129.3"; //원본주소 127.0.0.1
+	static final String HOST = "10.37.129.3"; //원본주소 127.0.0.1 
 
 	// 일타싸피 프로그램과 통신할 때 사용하는 코드값으로 변경하지 않습니다.
 	static final int PORT = 1447;
