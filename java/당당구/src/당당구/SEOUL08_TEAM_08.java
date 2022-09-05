@@ -1,15 +1,13 @@
-package 일타싸피;
-
 import java.net.*;
 import java.io.*;
 
-public class DAEJEON02_SAMPLE {
+public class SEOUL08_TEAM_08 {
 
 	// 닉네임을 사용자에 맞게 변경해 주세요.
-	static final String NICKNAME = "DAEJEON02_JAVA";
+	static final String NICKNAME = "SEOUL08_TEAM_08";
 	
 	// 일타싸피 프로그램을 로컬에서 실행할 경우 변경하지 않습니다.
-	static final String HOST = "10.37.129.3";
+	static final String HOST = "127.0.0.1";
 
 	// 일타싸피 프로그램과 통신할 때 사용하는 코드값으로 변경하지 않습니다.
 	static final int PORT = 1447;
@@ -82,12 +80,12 @@ public class DAEJEON02_SAMPLE {
 				}
 
 				// Show Balls' Position
-				for (int i = 0; i < NUMBER_OF_BALLS; i++) {
+				for (int i = 1; i < NUMBER_OF_BALLS; i++) {
 					System.out.println("Ball " + i + ": " + balls[i][0] + ", " + balls[i][1]);
 				}
 
-				float angle = 91.7f;
-				float power = 50.0f;
+				float angle = 0.0f;
+				float power = 0.0f;
 
 				//////////////////////////////
 				// 이 위는 일타싸피와 통신하여 데이터를 주고 받기 위해 작성된 부분이므로 수정하면 안됩니다.
@@ -103,24 +101,51 @@ public class DAEJEON02_SAMPLE {
 				
 				// 여기서부터 코드를 작성하세요.
 				// 아래에 있는 것은 샘플로 작성된 코드이므로 자유롭게 변경할 수 있습니다.
+					
 				
-
-
-
-
-/*
+			
+						
+				
 				// whiteBall_x, whiteBall_y: 흰 공의 X, Y좌표를 나타내기 위해 사용한 변수
 				float whiteBall_x = balls[0][0];
 				float whiteBall_y = balls[0][1];
 				
+				
+						
+						
+				
 				// targetBall_x, targetBall_y: 목적구의 X, Y좌표를 나타내기 위해 사용한 변수
-				float targetBall_x = balls[1][0];
-				float targetBall_y = balls[1][1];
-
+				float targetBall_x = 0.0f;
+				float targetBall_y = 0.0f;
+				
+				// 선공 1->3->5
+				if (order == 1) {
+					for(int i = 1; i < 6; i += 2) {
+						if(balls[i][0] != -1 && balls[i][1] != -1)
+						targetBall_x = balls[i][0];
+						targetBall_y = balls[i][1];
+						break;				
+					}
+				}
+				
+				// 후공 2->4->5
+				else {
+					for(int i = 2; i <= 6; i += 2) {
+						if(balls[i][0] != -1 && balls[i][1] != -1)
+						if(i==6) i=5;
+						targetBall_x = balls[i][0];
+						targetBall_y = balls[i][1];
+						
+						break;				
+					}
+				}
+				
+				
+				
 				// width, height: 목적구와 흰 공의 X좌표 간의 거리, Y좌표 간의 거리
 				float width = Math.abs(targetBall_x - whiteBall_x);
 				float height = Math.abs(targetBall_y - whiteBall_y);
-
+				
 				// radian: width와 height를 두 변으로 하는 직각삼각형의 각도를 구한 결과
 				//   - 1radian = 180 / PI (도)
 				//   - 1도 = PI / 180 (radian)
@@ -166,15 +191,25 @@ public class DAEJEON02_SAMPLE {
 					angle = (float) (((180.0 / Math.PI) * radian) + 90);
 				}
 				
+				else if(whiteBall_x>targetBall_x && targetBall_y>whiteBall_y)
+				{
+					radian = Math.atan(height / width);
+					angle = (float) (((180.0 / Math.PI) * radian) +270);
+				}
+				
+				
+				
+				
+				
 				// distance: 두 점(좌표) 사이의 거리를 계산
 				double distance = Math.sqrt((width * width) + (height * height));
 
 				// power: 거리 distance에 따른 힘의 세기를 계산
 				power = (float) distance;
 				
-
-
-
+				
+				
+			
 
 
 				// 주어진 데이터(공의 좌표)를 활용하여 두 개의 값을 최종 결정하고 나면,
@@ -193,11 +228,6 @@ public class DAEJEON02_SAMPLE {
 				os.write(bytes);
 				os.flush();
 				System.out.println("Data Sent: " + merged_data);
-				
-				
-				*/
-				
-				
 			}
 
 			os.close();
@@ -208,5 +238,4 @@ public class DAEJEON02_SAMPLE {
 			e.printStackTrace();
 		}
 	}
-	
 }
