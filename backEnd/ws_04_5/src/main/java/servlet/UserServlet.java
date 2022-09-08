@@ -37,6 +37,26 @@ public class UserServlet extends HttpServlet {
 		}
 		
 	}
+	
+	private void doLogout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+	
+	private void doLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
+		User user = UserManager.getInstance().getUser(userId, password);
+		if(user != null) {
+			HttpSession session= request.getSession();
+			session.setAttribute("loginUser", user);
+			response.sendRedirect("index.jsp");
+		} else {
+			request.setAttribute("msg","로그인 실패");
+			request.getRequestDispatcher("user/fail.jsp").forward(request, response);
+		}
+	}
 
 	// 회원가입 로직
 	private void doSignup(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
