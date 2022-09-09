@@ -11,7 +11,6 @@ public class 치킨배달_15686 {
 	static List<int[]> survivedList = new ArrayList<>();
 	static int M;
 	
-	
 	private static void sListPrinter() {
 		
 		System.out.print("survivedList is : ");
