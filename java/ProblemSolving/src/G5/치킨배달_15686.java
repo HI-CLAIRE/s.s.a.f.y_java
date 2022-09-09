@@ -9,7 +9,8 @@ public class 치킨배달_15686 {
 	static List<int[]> houseList = new ArrayList<>();
 	static List<int[]> chickenList = new ArrayList<>();
 	static List<int[]> survivedList = new ArrayList<>();
-	static int M;		
+	static int M;
+	
 	
 	private static void sListPrinter() {
 		
