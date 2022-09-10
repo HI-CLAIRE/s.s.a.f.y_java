@@ -11,14 +11,14 @@ public class 치킨배달_15686 {
 	static List<int[]> survivedList = new ArrayList<>();
 	static int M;
 	
-	private static void sListPrinter() {
-		
-		System.out.print("survivedList is : ");
-		for(int[] arr : survivedList) {
-			System.out.printf("[%d, %d] ", arr[0], arr[1]);
-		}
-		System.out.println();
-	}
+//	private static void sListPrinter() {
+//		
+//		System.out.print("survivedList is : ");
+//		for(int[] arr : survivedList) {
+//			System.out.printf("[%d, %d] ", arr[0], arr[1]);
+//		}
+//		System.out.println();
+//	}
 	
 	//M개의 치킨집 뽑아 survivedList에 저장, 반환값은 없음
 	private static void survivedM(int M, int cnt) {
@@ -36,7 +36,7 @@ public class 치킨배달_15686 {
 			
 			survivedList.remove(survivedList.size()-1);
 		}
-		sListPrinter();
+//		sListPrinter();
 	}
 	
 	//한 집에서 가장 가까운 치킨집까지의 거리(int[] house), 반환값은 그 거리 int
