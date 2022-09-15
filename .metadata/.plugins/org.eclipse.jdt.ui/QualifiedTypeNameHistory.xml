@@ -25,5 +25,14 @@
     <fullyQualifiedTypeName name="dto.Article"/>
     <fullyQualifiedTypeName name="manager.UserManager"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="util.DBUtil"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="dao.UserDao"/>
+    <fullyQualifiedTypeName name="dao.UserDaoImpl"/>
     <fullyQualifiedTypeName name="dto.User"/>
 </qualifiedTypeNameHistroy>
