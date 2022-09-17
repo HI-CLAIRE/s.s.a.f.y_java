@@ -25,9 +25,9 @@ public class 회문1 {
 					
 				}
 			}
-			
-			System.out.println(cnt);
-			System.out.println("#" + tc + " " + cnt);
+//			
+//			System.out.println(cnt);
+//			System.out.println("#" + tc + " " + cnt);
 		}
 		sc.close();
 	}

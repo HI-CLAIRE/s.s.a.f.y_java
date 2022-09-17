@@ -1,0 +1,55 @@
+#head_SSAFYUSERS {
+  font-size: 25px;
+  color: rgb(59, 57, 57);
+}
+
+.carousel-item {
+  height: 300px;
+}
+
+#carouselExampleControls{
+  margin: 10px;
+}
+
+main{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+article{
+  display: flex;
+  width: 1200px;
+  flex-flow: column; 
+  align-items: center; 
+}
+
+section{
+  display: flex;
+  width: 1200px;
+  height: 480px;
+  flex-flow: row;
+  overflow: hidden;
+  position: relative;
+}
+
+section>*{
+  flex-shrink: 0;
+}
+
+#slides{
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
+  transition: left 0.5s ease-out; 
+}
+
+.prev, .next{
+  border: 0;
+  background-color: white;
+  position: relative;
+  top: 200px;
+  height: 100px;
+}
