@@ -109,6 +109,7 @@ public class ArticleController extends HttpServlet {
 			request.setAttribute("msg", "게시글 등록 실패");
 			request.getRequestDispatcher("article/fail.jsp").forward(request, response);
 			
+			
 		}
 	}
 
