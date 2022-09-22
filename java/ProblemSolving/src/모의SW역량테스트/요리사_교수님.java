@@ -1,4 +1,4 @@
-package SWEA;
+package 모의SW역량테스트;
 
 import java.util.Scanner;
 

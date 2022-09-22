@@ -1,4 +1,4 @@
-package SWEA;
+package 모의SW역량테스트;
 
 import java.util.Scanner;
 
@@ -34,7 +34,7 @@ public class 요리사 {
 			// i, j=f1, k=f2
 			for(int i=0, j=0, k=0; i<N; i++) {
 				if(visited[i]) f1[j++] = i;
-				else f2[k++] = i;
+				elsenaver.c f2[k++] = i;
 			}
 			
 			int flavor = Math.abs(synergy(f1) - synergy(f2));
