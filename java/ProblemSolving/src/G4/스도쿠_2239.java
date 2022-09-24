@@ -31,8 +31,8 @@ public class 스도쿠_2239 {
 	}
 	
 	private static boolean sudoku(int i) {
+//		System.out.println(i);
 		if(i == blanks.size()) {
-			System.out.println("도달");
 			return true;
 		}
 		
@@ -41,17 +41,12 @@ public class 스도쿠_2239 {
 		int y = blanks.get(i)[0];
 		int x = blanks.get(i)[1];
 		for(int num=1; num<=9; num++) {
-//			System.out.println("여기");
+			//System.out.println("여기");
 			if(isOk(x, y, num)) {
-				
-				System.out.println(1);
 				
 				map[y][x] = num;
 				if(sudoku(i + 1))
 					return true;
-				
-				System.out.println(2);
-				
 				map[y][x] = 0;
 			}
 		}
@@ -66,7 +61,7 @@ public class 스도쿠_2239 {
 				int k = line.charAt(j) - '0';
 				map[i][j] = k;
 				if(map[i][j] == 0)
-					blanks.add(new int[] {i, k});
+					blanks.add(new int[] {i, j});
 			}
 		}
 		sudoku(0);
@@ -80,7 +75,7 @@ public class 스도쿠_2239 {
 		System.out.println(sb.toString());
 	}
 	/*
-	 * 035469278
+035469278
 782105609
 060278135
 321046897
