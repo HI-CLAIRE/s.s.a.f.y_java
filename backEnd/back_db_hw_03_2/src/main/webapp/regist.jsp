@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- user 객체 사용을 위해 import --%>
-<%@ page import="________________"%>
+<%@ page import="dto.User"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,7 +17,7 @@
 </style>
 <script>
 	// request 영역에 msg라는 이름의 attribute가 있다면 화면에 alert으로 출력한다.
-	let msg = "<%=request.___________("msg")==null?"":request.__________("msg")%>";
+	let msg = "<%=request.getAttribute("msg")==null?"":request.getAttribute("msg")%>";
 	if (msg) {
 		alert(msg)
 	}
@@ -28,7 +28,7 @@
 		<%-- session에서 loginUser를 가져와서 존재 여부에 따라 로그인 폼 또는 사용자 정보를 출력한다. --%>
 		<%
 		// session에서 user 객체 가져오기
-		Object userObj = session._____________("_____");
+		Object userObj = session.getAttribute("User");
 		// null 인지 검사후 User 로 타입 변환
 		User user = userObj == null ? null : (User) userObj;
 		// 로그인 정보가 없을 경우는 로그인을 위한 폼을 제공한다.
@@ -48,7 +48,7 @@
 		%>
 		<div>
 			<%--user에 설정한 이름 사용 --%>
-			<%=____________%>
+			<%=session.getAttribute("name") %>
 			님 반갑습니다.
 			<a href="main?action=logout">로그아웃</a>
 		</div>
