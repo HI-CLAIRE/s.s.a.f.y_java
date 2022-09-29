@@ -32,6 +32,7 @@ public class 아기상어2_17086 {
 		N = sc.nextInt();
 		M = sc.nextInt();
 		map = new int[N][M];
+		visited = new boolean[N][M];
 		
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
@@ -39,7 +40,7 @@ public class 아기상어2_17086 {
 			}
 		}
 		
-		max = Integer.MIN_VALUE;
+		max = 0;
 		
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
@@ -49,7 +50,7 @@ public class 아기상어2_17086 {
 				}
 			}
 		}
-		
+		System.out.println(max);
 		sc.close();
 	}
 
@@ -69,13 +70,13 @@ public class 아기상어2_17086 {
 				int nr = r + dr[d];
 				int nc = c + dc[d];
 				
-				if(nr>=0 && nr<=N-1 && nc>=0 && nc<=M-1 && !visited[nr][nc] && map[nr][nc]==0) {
+				if(nr>=0 && nr<=N-1 && nc>=0 && nc<=M-1 && !visited[nr][nc]) {
 					visited[nr][nc] = true;
 					q.offer(new Water(nr, nc, cnt+1));
-					
-				}
-				if(map[nr][nc] == 1) {
-					max = Math.max(cnt, max);
+					if(map[nr][nc] == 1) {
+						max = Math.max(cnt, max);
+						return;
+					}
 					
 				}
 			}
