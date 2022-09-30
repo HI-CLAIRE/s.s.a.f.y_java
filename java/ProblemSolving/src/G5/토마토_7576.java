@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class 토마토_7576 {
 
-	static int M, N, min;
+	static int M, N, max;
 	static int[][] box;
 	static boolean[][] visited;
 	static int[] dr = {-1, 0, 1, 0};
@@ -16,11 +16,10 @@ public class 토마토_7576 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		M = sc.nextInt();
 		N = sc.nextInt();
+		M = sc.nextInt();
 		
 		box = new int[M][N];
-		visited = new boolean[M][N];
 		visited = new boolean[M][N];
 		
 		// -1인 칸은 갈 수 없으므로 방문처리를 한 후 들어가지 못하도록
@@ -36,19 +35,19 @@ public class 토마토_7576 {
 				}
 			}
 		}
+		max = 0;
+		bfs();
 		
-		// 1->0 가장 최소값을 찾기
-		// 다 채우면 종료
-		// 하나라도 방문하지 않은 창고가 있다면 -1 출력
-		min = Integer.MAX_VALUE;
 		for(int i=0; i<M; i++) {
 			for(int j=0; j<N; j++) {
-				if(box[i][j] == 1 && !visited[i][j]) {
-					bfs();					
+				if(box[i][j] == 0) {
+					max = -1;
+					break;
 				}
 			}
 		}
-		System.out.println(min);
+		
+		System.out.println(max);
 	}
 
 	private static void bfs() {
@@ -69,17 +68,7 @@ public class 토마토_7576 {
 					q.offer(new Tomato(nr, nc, cnt+1));
 				}
 			}
-			min = Math.min(min, cnt);
-		}
-		// 종료조건
-		// 더 이상 방문할 상자가 없을 때
-		for(int i=0; i<M; i++) {
-			for(int j=0; j<N; j++) {
-				if(visited[i][j]) {
-					min = -1;
-					return;
-				}
-			}
+			max = Math.max(max, cnt);
 		}
 	}
 
