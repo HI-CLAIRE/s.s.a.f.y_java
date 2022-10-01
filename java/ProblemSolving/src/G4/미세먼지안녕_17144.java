@@ -22,8 +22,7 @@ public class 미세먼지안녕_17144 {
 		T = Integer.parseInt(st.nextToken());
 
 		map = new int[R][C];
-		filter = new ArrayList<>();
-		dust = new ArrayList<>();
+		
 		
 		// map 입력받기
 		for(int r=0; r<R; r++) {
