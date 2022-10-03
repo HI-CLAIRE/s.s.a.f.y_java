@@ -38,9 +38,16 @@ public class 미세먼지안녕_17145_다시 {
 			diffusion();
 			
 			// 공기청정기 순환
-			circulator();			
+			circulator();	
+//			printer();
 		}
-		printer();
+		int ans = 0;
+		for(int i=0; i<R; i++) {
+			for(int j=0; j<C; j++) {
+				ans += map[i][j];
+			}
+		}
+		System.out.println(ans + 2);
 		
 	}
 	
@@ -93,7 +100,7 @@ public class 미세먼지안녕_17145_다시 {
 		
 		// 초기조건 
 		int d = 0;
-		int r = up[0] - 1;
+		int r = up[0] - 1; 
 		int c = up[1];
 		
 		// 1. up (시계반대방향)
@@ -120,24 +127,47 @@ public class 미세먼지안녕_17145_다시 {
 		
 		
 		
-		int[] down = filter.get(1); 
-		
+		int[] down = filter.get(1);
 		// 하 -> 우 -> 상 -> 좌  
-		int[] drdown = {1, 0, -1, 0};
-		int[] dcdown = {0, 1, 0, -1};
+		int[] drDown = {1, 0, -1, 0};
+		int[] dcDown = {0, 1, 0, -1};
 		d = 0;
 
-		// 2. down (시계방향)
+		// 초기조건 
+		d = 0;
+		r = down[0] + 1;
+		c = down[1];
 		
-	}
-
-	private static void printer() {
-		for(int i=0; i<R; i++) {
-			for(int j=0; j<C; j++) {
-				System.out.print(map[i][j] + " ");
+		// 2. down (시계방향)
+		while(true) {			
+			int nr = r + drDown[d];
+			int nc = c + dcDown[d];
+			
+			// 종료조건 
+			if(nr == down[0] && nc == down[1]) {
+				map[r][c] = 0;
+				break;
 			}
-			System.out.println();
+			
+			if(nr<down[0] || nc<0 || nr>=R || nc>=C) {
+				d = (d + 1) % 4;
+				continue;		// 다음 반복문  
+			}
+			
+			map[r][c] = map[nr][nc];
+			
+			r = nr;
+			c = nc;
 		}
 	}
+
+//	private static void printer() {
+//		for(int i=0; i<R; i++) {
+//			for(int j=0; j<C; j++) {
+//				System.out.print(map[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
+//	}
 
 }
