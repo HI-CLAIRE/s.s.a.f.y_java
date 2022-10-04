@@ -19,7 +19,7 @@ public class 로봇청소기_14503 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		R = Integer.parseInt(st.nextToken());
-		C = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());zz
 				
 		st = new StringTokenizer(br.readLine());
 		robot = new int[] {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
