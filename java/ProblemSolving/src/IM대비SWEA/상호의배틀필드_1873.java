@@ -24,7 +24,20 @@ public class 상호의배틀필드_1873 {
 				for(int c=0; c<W; c++) {
 					map[r][c] = str.charAt(c);
 					// 방향이랑 탱크의 포지션을 저장해준다.
-					d = judgeTank(r, c);
+					if(map[r][c] == '^' || map[r][c] == 'v' || map[r][c] == '<' || map[r][c] == '>') {
+						pos[0] = r;
+						pos[1] = c;
+						switch(map[r][c]) {
+							case '^' : d=0;
+								break;
+							case 'v' : d=1;
+								break;
+							case '<' : d=2; 
+								break;
+							case '>' : d=3;
+								break;
+						}
+					}
 				}
 			}
 			
@@ -45,7 +58,8 @@ public class 상호의배틀필드_1873 {
 					case 'S' : shoot(d);
 				}
 			}
-			sc.close();
+			
+			printer(tc);
 		}
 	}
 
@@ -54,22 +68,31 @@ public class 상호의배틀필드_1873 {
 	// 물(-)			(이동불가능)
 	
 	public static void move(int d) {
+		
+		map[pos[0]][pos[1]] = tank(d);
+		
 		int nr = pos[0] + dr[d];
 		int nc = pos[1] + dc[d];
 		
 		if(nr<0 || nc<0 || nr>=H || nc>=W || map[nr][nc]!='.') return;
 		
+		// 움직인 칸에 현재 위치 삽입
+		map[nr][nc] = map[pos[0]][pos[1]];
+		map[pos[0]][pos[1]] = '.';
 		
+		pos[0] = nr;
+		pos[1] = nc;
 		
 	}
 	
 	public static void shoot(int d) {
 		int i = 1;
+
 		while(true) {
-			
+
 			int nr = pos[0] + dr[d] * i;
 			int nc = pos[1] + dc[d] * i;
-			
+
 			// 범위를 벗어나면 종료
 			if(nr<0 || nc<0 || nr>=H || nc>=W) return;
 
@@ -87,23 +110,26 @@ public class 상호의배틀필드_1873 {
 		
 	}
 	
-	public static int judgeTank(int r, int c) {
-		int d = -1;
-		if(map[r][c] == '^' || map[r][c] == 'v' || map[r][c] == '<' || map[r][c] == '>') {
-			pos[0] = r;
-			pos[1] = c;
-			switch(map[r][c]) {
-				case '^' : d=0;
-					break;
-				case 'v' : d=1;
-					break;
-				case '<' : d=2; 
-					break;
-				case '>' : d=3;
-					break;
+	private static void printer(int tc) {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("#").append(tc).append(" ");
+		
+		for(int i=0; i<H; i++) {
+			for(int j=0; j<W; j++) {
+				sb.append(map[i][j]);
 			}
+			sb.append("\n");
 		}
-		return d;
+		System.out.print(sb.toString());
+	}
+	
+	private static char tank(int d) {
+		if(d == 0) return '^';
+		else if(d == 1) return 'v';
+		else if(d == 2) return '<';
+		else if(d == 3) return '>';
+		return 0;
 	}
 	
 }
