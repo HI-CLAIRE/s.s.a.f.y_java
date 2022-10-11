@@ -12,21 +12,18 @@ public class 경로의개수 {
 		int T = Integer.parseInt(st.nextToken());
 		
 		st = new StringTokenizer(br.readLine());
-		int[] arr = new int[T];
+		long[] arr = new long[T];
 		for(int t=0; t<T; t++) {
 			arr[t] = Integer.parseInt(st.nextToken());
 		}
 		
 		
-		int ans = 1;
-		if(T == 2) {
-			System.out.println(arr[0]);
-		} else {
-			for(int i : arr) {
-				ans *= i;
-			}
-			System.out.println(ans);
+		long ans = 1;
+		for(long i : arr) {
+			ans *= i;
 		}
+		System.out.println(ans);
+		
 	} 
 
 }

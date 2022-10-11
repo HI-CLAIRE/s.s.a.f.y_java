@@ -1,32 +1,43 @@
 package 일주차;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class 소수찾기 {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int N = sc.nextInt();
+		int N = Integer.parseInt(st.nextToken());
 		
-		int cnt = 0;
-		int[] arr = new int[N];
-		for(int i=0; i<N; i++) {
-			arr[i] = sc.nextInt();
-			if(arr[i] < 2) continue;
-			cnt += isPrime(arr[i]);
+		boolean[] prime = new boolean[N+1];
+		int[] arr = new int[N+1];
+		
+		st = new StringTokenizer(br.readLine());
+		for(int i=1; i<=N; i++) {
+			arr[i] = Integer.parseInt(st.nextToken());
 		}
-		System.out.println(cnt);
-	}
+		
+		prime[0] = prime[1] = true;
+		
+		for(int i=2; i*i<=N; i++) {
+			if(!prime[i]) {
+				for(int j=i*i; j<=N; j+=i) {
+					prime[j] = true;
+				}
+			}
+		}
 
-	private static int isPrime(int num) {
-		if(num == 2) return num;
-		for(int i=2; i<num; i++) {
-			if(num % i == 0) return 0;
+		int ans = 0;
+		for(int i=1; i<=N; i++) {
+			if(!prime[i])
+				ans += arr[i];
 		}
-		return num;
+		System.out.println(ans);
+		br.close();
 	}
-	
-	
 
 }
