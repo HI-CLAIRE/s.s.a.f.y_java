@@ -51,6 +51,7 @@ public class 출석부 {
 			}
 			
 		}
+
 //		for(int i=0; i<N; i++)
 //			System.out.println(list.get(i).name + " " + list.get(i).tall);
 //		}
