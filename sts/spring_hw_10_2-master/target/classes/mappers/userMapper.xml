@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 UserRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.ssafy.hw.model.dao.UserDao">
+	<insert id="insert" parameterType="User">
+		INSERT INTO users
+			VALUES (#{id}, #{password}, #{name}, #{email}, #{age}, #{img})
+	</insert>
+	<select id="selectAll" resultType="User">
+		SELECT * FROM users
+	</select>
+	<select id="searchById" parameterType="string" resultType="User">
+		SELECT * FROM users
+		WHERE id = #{id}
+	</select>
+	<select id="searchByName" parameterType="string" resultType="User">
+		SELECT * FROM users
+		WHERE name LIKE CONCAT('%', #{work}, '%')
+	</select>
+	<select id="searchByCondition" parameterType="SearchCondition" resultType="User">
+		SELECT * FROM users
+		<if test="key != 'none'">
+			WHERE ${key} LIKE CONCAT('%', #{word}, '%')
+		</if>
+		<if test="orderBy != 'none'">
+			ORDER BY ${orederBy} ${orderByDir}
+		</if>
+	</select>
+</mapper>
