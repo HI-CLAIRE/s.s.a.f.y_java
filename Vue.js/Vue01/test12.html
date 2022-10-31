@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <h2>숫자 돌려본다.</h2>
+      <span v-for="i in 10">{{ i }}</span>
+    </div>
+    <div>
+      <h2>문자 배열을 돌려본다.</h2>
+      <ul>
+        <li v-for="name in names">{{ name }}</li>
+      </ul>
+    </div>
+    <div>
+      <h2>문자 배열 돌리기 2</h2>
+      <ul>
+        <!-- 순서가 중요하다! -->
+        <li v-for="(name, index) in names">{{ index + 1 }} : {{ name }}</li>
+      </ul>
+    </div>
+    <div>
+      <h2>객체배열</h2>
+      <ul>
+        <li v-for="human in humans">{{human.name}} : {{human["age"]}}세</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+           names: ["김동현", "김가람", "수진", "미미"],
+           humans : [
+            {
+              name : "김동현",
+              age : 6
+            },
+            {
+              name : "김가람",
+              age : 16
+            }
+           ]
+        }
+      }
+    })
+
+  </script>
+
+</body>
+</html>

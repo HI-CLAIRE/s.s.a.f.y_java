@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">{{ message }}</div>
+
+  <script>
+    // HTML 요소를 직접 넣겠다.
+    const app = document.querySelector('#app');
+    new Vue({
+      el: app,
+      // 객체선언
+      // data: {
+      //   message: '요소 집어넣기!',
+      // },
+
+      // 함수 형태로 사용하기
+      data: function() {
+        return {
+          message: '객체형태 반환',
+        };
+      },
+      // 함수형태 es6
+      data() {
+        return {
+          message: 'ES6 적용',
+        };
+      }
+    });
+
+  </script>
+</body>
+</html>

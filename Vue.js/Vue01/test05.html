@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- 보간법을 써보겠다. -->
+  <div id="app">
+    <!-- 콧수염방식-->
+    <h2>{{msg}}</h2>
+    <!-- v-once : 역할 ->  값이 바뀌지 않음-->
+    <h2 v-once>{{msg}}</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: '서울 8반 김규연 : 오',
+        }
+      }
+    })
+
+  </script>
+
+</body>
+</html>

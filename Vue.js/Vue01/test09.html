@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model 중국어, 일본어, 한국어 바로바로 업데이트 되지 않는다.
+        해결방법 : input 이벤트를 이용해서 처리해야 한다.
+    -->
+
+    <!-- 초기값은 무시가 된다. -->
+    <input type="text" value="초기값" v-model="msg"/>
+    <div>{{ msg }}</div>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'hello',
+        }
+      }
+    })
+
+  </script>
+
+</body>
+</html>
