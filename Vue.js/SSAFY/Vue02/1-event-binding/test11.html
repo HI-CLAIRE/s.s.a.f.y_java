@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h2>성별 고르기</h2>
+    <input type="radio" id="man" v-model="gender" value="man">
+    <label for="man">사나이</label>
+    <input type="radio" id="woman" v-model="gender" value="woman">
+    <label for="woman">가시나</label>
+
+    <p>나의 성별은 {{ gender }}</p>
+  </div>
+</body>  
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      gender: ""
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

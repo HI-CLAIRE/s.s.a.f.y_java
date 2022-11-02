@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Vue</title>
+
+  <style>
+    div {
+      width: 200px;
+      height: 100px;
+      border: 1px solid black;
+    }
+    .active {
+      background-color: black;
+      color: white;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="app">
+    <div v-bind:class="myclass">하</div>
+    <div :class="{active: isActive}">하</div>
+    <button @click="toggle">다크모드</button>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        myclass: {active:true},
+        isActive: false
+      },
+      methods: {
+        toggle() {
+          this.isActive = !this.isActive
+        }
+      }
+    })
+  </script>
+</body>
+</html>

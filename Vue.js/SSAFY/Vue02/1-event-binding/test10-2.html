@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h2>당신이 떠나고 싶은 여행지를 선택하시오.</h2>
+    <input type="checkbox" id="seoul" v-model="checkedAreas" value="서울">
+    <label for="seoul">서울</label>
+    <input type="checkbox" id="hwaii" v-model="checkedAreas" value="하와이">
+    <label for="hwaii">하와이</label>
+    <input type="checkbox" id="bangkok" v-model="checkedAreas" value="방콕">
+    <label for="bangkok">방콕</label>
+    <input type="checkbox" id="danag" v-model="checkedAreas" value="다낭">
+    <label for="danag">다낭</label>
+
+    <p>체크한 이름은 {{ checkedAreas }}</p>
+  </div>
+</body>  
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      checkedAreas: []
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

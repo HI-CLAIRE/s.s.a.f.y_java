@@ -44,12 +44,16 @@ console.log(`add3 : ${add3()}`);
 
 // Object에 Property로 넣기
 const obj = {
+  x: 'x',
   a: function() {
+    console.log(this.x);
     console.log("obj.a() is called");
   },
   b() {
     console.log("obj.b() is called");
-    let a = () => {console.log('a');}
+    let a = () => {
+      console.log(this.x);
+      console.log('a');}
   },
   c: () => {
     console.log("obj.c() is called");

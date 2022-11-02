@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h2>내가 가고싶은 캠퍼스를 선택하시오!</h2>
+    <select v-model="selectedArea">
+      <option v-for="area in areas" :value="area.value">
+        {{area.name}}
+      </option>
+    </select>
+    <div v-if="selectedArea">
+      소속 캠퍼스는 : {{ selectedArea }} 입니다.
+    </div>
+  </div>
+</body>  
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      selectedArea: "",
+      areas: [
+        { name: '서울', value: 'seoul'},
+        { name: '대전', value: 'daejeon'},
+        { name: '광주', value: 'gwangju'},
+        { name: '구미', value: 'gumi'},
+        { name: '부울경', value: 'buk'},
+      ]
+    },
+    methods: {
+    }
+  })
+</script>
+</html>
