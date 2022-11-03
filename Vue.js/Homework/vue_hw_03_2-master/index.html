@@ -16,7 +16,8 @@
             <a href="index.html" class="logo">SSAFY USERS</a>
           </div>
           <div>
-            <a href="login.html">로그인</a>
+            <a href="#" v-if="getUser" @click="logout">로그아웃</a>
+            <a href="login.html" v-else>로그인</a>
             <a href="regist.html">회원가입</a>
             <a href="list.html">사용자목록</a>
           </div>
@@ -42,7 +43,6 @@
         <hr />
         <div>
           <h2>검색 결과</h2>
-          <!-- user 가 null 이 아니면 보여주기 -->
           <div v-if="user"></div>
           <div v-else>검색 결과가 없습니다.</div>
         </div>
@@ -55,11 +55,31 @@
       new Vue({
         el: "#app",
         name: "index",
-        data: {
-          message: "사용자 정보 사이트에 오신것을 환영합니다.",
-          search: "",
-          users: null,
+        data() {
+          return {
+            message: "사용자 정보 사이트에 오신것을 환영합니다.",
+            search: "",
+            user:null,
+            users: null,
+          };
         },
+        // 필요한 동작
+        ________: {
+          logout() {
+            localStorage.___________("loginUser");
+            location.href = "index.html";
+          }
+        },
+        // 계산된 속성 ( v-if 에 사용 )
+        _________: {
+          getUser() {
+            if (localStorage.___________("loginUser")) {
+              return true;
+            } else {
+              return false;
+            }
+          },
+        }
       });
     </script>
   </body>

@@ -17,7 +17,8 @@
             <a href="index.html" class="logo">SSAFY USERS</a>
           </div>
           <div>
-            <a href="login.html">로그인</a>
+            <a href="#" v-if="getUser" @click="logout">로그아웃</a>
+            <a href="login.html" v-else>로그인</a>
             <a href="regist.html">회원가입</a>
             <a href="list.html">사용자목록</a>
           </div>
@@ -26,7 +27,7 @@
       <!-- Main -->
       <div class="container">
         <h2>사용자 목록</h2>
-        <div v-if="users.length">
+        <div v-if="userCnt">
           <table class="user-list">
             <colgroup>
               <col style="width: 5%" />
@@ -45,10 +46,13 @@
               </tr>
             </thead>
             <tbody>
-              <!--반복문을 통해 사용자 정보 출력-->
               <tr v-for="(user, index) in users" :key="index">
-                <td>{{ index+1 }}</td>
-                <td>{{ user.id }}</td>
+                <td>{{ index + 1 }}</td>
+                <td>
+                  <a class="user-link" :href="'detail.html?id='+user.id"
+                    >{{ user.id }}</a
+                  >
+                </td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.age }} 세</td>
@@ -56,58 +60,43 @@
             </tbody>
           </table>
         </div>
-        <div v-if="user">등록된 사용자가 없습니다.</div>
+        <div v-else>등록된 사용자가 없습니다.</div>
       </div>
     </div>
     <script>
       new Vue({
         el: "#app",
         name: "list",
-        data: {
-          users: [
-            {
-              img: "img/아이언맨.png",
-              id: "IronMan",
-              name: "토니 스타크",
-              email: "ironman@ssafy.com",
-              age: 53,
-            },
-            {
-              img: "img/캡틴.png",
-              id: "CaptainAmerica",
-              name: "스티브 로저스",
-              email: "Captain@ssafy.com",
-              age: "30",
-            },
-            {
-              img: "img/토르.png",
-              id: "Thor",
-              name: "토르",
-              email: "GodOfThunder@ssafy.com",
-              age: "1500",
-            },
-            {
-              img: "img/헐크.png",
-              id: "Hulk",
-              name: "브루스 배너",
-              email: "hulk@ssafy.com",
-              age: "54",
-            },
-            {
-              img: "img/블랙위도우.png",
-              id: "BlackWidow",
-              name: "나타샤 로마노프",
-              email: "blackwidow@ssafy.com",
-              age: "38",
-            },
-            {
-              img: "img/울트론.png",
-              id: "Ultron",
-              name: "울트론",
-              email: "ultron@ssafy.com",
-              age: "0",
-            },
-          ],
+        data() {
+          return {
+            users: [],
+            user: null,
+          };
+        },
+        // 필요한 동작
+        methods: {
+          logout() {
+            localStorage.clear("loginUser");
+            location.href = "index.html";
+          },
+        },
+        // 계산된 속성 ( v-if 에 사용 )
+        computed: {
+          userCnt() {
+            return this.users.length;
+          },
+          getUser() {
+            if (localStorage.getItem("loginUser")) {
+              return true;
+            } else {
+              return false;
+            }
+          },
+        },
+        // 페이지 초기화
+        created() {
+          const userList = localStorage.getItem("userList");
+          if (userList) this.users = JSON.parse(userList);
         },
       });
     </script>
