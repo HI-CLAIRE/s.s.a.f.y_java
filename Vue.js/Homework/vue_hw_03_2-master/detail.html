@@ -82,7 +82,7 @@
             for (let i = 0; i < userList.length; i++) {
               if (userList[i].id === this.user.id) {
                 // 배열 수정
-                ___________(userList, i, this.user);
+                userList[i] = user;
               }
             }
 
@@ -99,7 +99,7 @@
             for (let i = 0; i < userList.length; i++) {
               if (userList[i].id === this.user.id) {
                 // 배열 삭제
-                _________(i, 1);
+                userList.splice(i, 1);
                 location.href = "list.html";
                 alert("삭제 완료");
                 break;
@@ -124,7 +124,7 @@
           },
         },
         //페이지 초기화
-        _______() {
+        created() {
           const params = new URL(document.location).searchParams;
 
           const userList = JSON.parse(localStorage.getItem("userList"));
