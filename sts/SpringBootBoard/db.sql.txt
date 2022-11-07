@@ -1,0 +1,46 @@
+DROP DATABASE IF EXISTS ssafy_car;
+
+CREATE DATABASE ssafy_car CHARACTER SET=utf8mb4;
+
+USE ssafy_car;
+
+DROP TABLE IF EXISTS manufacturer;
+DROP TABLE IF EXISTS car;
+
+CREATE TABLE `manufacturer` (
+	`code` INT NOT NULL PRIMARY KEY,
+    `company_name` VARCHAR(40) NOT NULL,
+    `nation` VARCHAR(40) NOT NULL
+)ENGINE=InnoDB;
+
+CREATE TABLE `car` (
+	`vin` VARCHAR(45) NOT NULL PRIMARY KEY,
+    `modelname` VARCHAR(40) NOT NULL,
+    `year_of_manufacture` YEAR,
+    `mileage` INT NOT NULL,
+    `view_cnt` INT DEFAULT 0,
+    `price` INT NOT NULL,
+    `manufacturer_code` INT NOT NULL,
+    CONSTRAINT `car_manufacturer_fk` FOREIGN KEY (`manufacturer_code`) REFERENCES `manufacturer` (`code`)
+)ENGINE=InnoDB;
+
+
+
+INSERT INTO `manufacturer` (code, company_name, nation)
+VALUES
+(100, '현대자동차', 'KOR'),
+(200, '기아자동차', 'KOR'),
+(300, '쉐보레', 'USA'),
+(400, '포드', 'USA');
+
+INSERT INTO `car` (vin, modelname, year_of_manufacture, mileage, price, manufacturer_code)
+VALUES 
+('KMHXX00XXXX000000', '소나타', '2018', 20000, 1000, 100),
+('KMHXX00XXXX000001', '아반떼', '2021', 1000, 2000, 100),
+('KNHXX00XXXX000000', 'K-5' ,'2017', 35000, 1500, 200),
+('KNHXX00XXXX000001', '쏘렌토','2010', 100000, 500, 200),
+('1G1ZE5ST1HF199624', '말리부','2020', 5000, 1300, 300);
+
+
+
+SELECT * FROM car;
