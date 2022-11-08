@@ -29,6 +29,12 @@
           };
         },
         created() {
+          const str = '[{"id":"123","password":"123","name":"123","email":"123","age":"123"},{"id":"a","password":"a","name":"DDDDDD","email":"a@A","age":"21"}]';
+          const arr = JSON.parse(str);
+          console.log(str)
+          console.log(arr)
+          localStorage.setItem("newUsers", JSON.stringify(arr));
+
           const userList = localStorage.getItem("userList");
           if (userList) this.users = JSON.parse(userList);
         },

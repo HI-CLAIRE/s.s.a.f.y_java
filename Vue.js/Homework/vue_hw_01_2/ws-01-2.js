@@ -19,3 +19,4 @@ console.log(Movie);
 // 3
 const Movies = ["기생충", "이터널스", "킹스맨", "스파이더맨", "해리포터"];
 Movies.forEach((movie) => console.log(movie));
+
