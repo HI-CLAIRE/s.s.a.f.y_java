@@ -24,9 +24,9 @@
           <tr v-for="(user, index) in users" :key="index">
             <td>{{ index + 1 }}</td>
             <td>
-              <!-- <_________ class="user-link" :to="`/${user.id}`">{{
+              <router-link class="user-link" :to="`/${user.id}`">{{
                 user.id
-              }}</_________> -->
+              }}</router-link>
             </td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>

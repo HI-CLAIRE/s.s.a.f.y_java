@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import LoginForm from "@/components/LoginForm.vue";
-import User from "../views/User.vue";
+import UserView from "../views/User.vue";
 import UserList from "@/components/user/UserList.vue";
 import UserRegist from "@/components/user/UserRegist.vue";
 import UserDetail from "@/components/user/UserDetail.vue";
@@ -15,32 +15,33 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  // {
-  //   _________: "_________",
-  //   _________: "Login",
-  //   _________: _________,
-  // },
-  // {
-  //   _________: "_________",
-  //   _________: User,
-  //   _________: [
-  //     {
-  //       _________: "_________",
-  //       _________: "Regist",
-  //       _________: _________,
-  //     },
-  //     {
-  //       _________: "_________",
-  //       _________: "List",
-  //       _________: _________,
-  //     },
-  //     {
-  //       _________: "_________",
-  //       _________: "Detail",
-  //       _________: _________,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/login",
+    name: "Login",
+    component: LoginForm,
+  },
+  {
+    path: "/user",
+    name: "User",
+    component: UserView,
+    children: [
+      {
+        path: "regist",
+        name: "Regist",
+        component: UserRegist,
+      },
+      {
+        path: "list",
+        name: "List",
+        component: UserList,
+      },
+      {
+        path: "detail",
+        name: "Detail",
+        component: UserDetail,
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({

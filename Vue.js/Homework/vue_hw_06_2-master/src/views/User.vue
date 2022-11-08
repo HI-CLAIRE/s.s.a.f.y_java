@@ -1,17 +1,17 @@
 <template>
   <div>
-    <!-- <_________
+    <router-view
       :users="users"
       @create-user="createUser"
       @update-user="updateUser"
       @delete-user="deleteUser"
-    /> -->
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: "User",
+  name: "UserView",
   data() {
     return {
       users: [],

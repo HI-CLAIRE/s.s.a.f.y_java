@@ -1,16 +1,16 @@
 <template>
   <header>
-    <!-- <nav class="header-nav">
+    <nav class="header-nav">
       <div>
-        <_________ to="/" class="logo">SSAFY USERS</_________>
+        <router-link to="/" class="logo">SSAFY USERS</router-link>
       </div>
       <div>
         <a href="#" v-if="getUser" @click="logout">로그아웃</a>
-        <_________ to="/login" v-else>로그인</_________>
-        <_________ :to="{ name: 'Regist' }">회원가입</_________>
-        <_________ to="/user">사용자목록</_________>
+        <router-link to="/login" v-else>로그인</router-link>
+        <router-link :to="{ name: 'Regist' }">회원가입</router-link>
+        <router-link to="/user">사용자목록</router-link>
       </div>
-    </nav> -->
+    </nav>
   </header>
 </template>
 <script>

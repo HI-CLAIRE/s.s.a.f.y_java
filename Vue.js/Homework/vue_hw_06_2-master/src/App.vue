@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-nav :user="user" @logout="logout" />
-    <!-- <_________ @login="login" /> -->
+    <router-view @login="login" />
   </div>
 </template>
 <script>
