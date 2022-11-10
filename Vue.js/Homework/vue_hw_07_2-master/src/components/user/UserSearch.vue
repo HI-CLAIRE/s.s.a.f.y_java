@@ -65,11 +65,17 @@ export default {
   methods: {
     searchUser() {
       // user 수정 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user/search`;
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
+        url: API_URL,
+        method: "get",
+        params: {
+          key: 'name',
+          word: this.search,
+          orderBy: 'name',
+          orderByDir: 'DESC'
+        }
       })
         .then((res) => {
           for (let i = 0; i < res.data.length; i++) {

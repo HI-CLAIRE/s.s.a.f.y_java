@@ -22,11 +22,11 @@ export default {
   methods: {
     getUserList() {
       // user 리스트 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user`;
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
+        url: API_URL,
+        method: "get",
       })
         .then((res) => {
           this.users = res.data;
@@ -38,11 +38,11 @@ export default {
     },
     createUser(user) {
       // user 등록 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user`;
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
+        url: API_URL,
+        method: "post",
         data: user,
       })
         .then(() => {
@@ -51,17 +51,18 @@ export default {
           this.$router.push("/user");
         })
         .catch((err) => {
+          console.log(user)
           console.log(err);
         });
     },
     updateUser(user) {
       // user 수정 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user`;
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
-        data: _____________,
+        url: API_URL,
+        method: "put",
+        data: user,
       })
         .then(() => {
           alert("수정 완료");
@@ -74,11 +75,11 @@ export default {
     },
     deleteUser(user) {
       // user 수정 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user/${user.id}`;
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
+        url: API_URL,
+        method: "delete",
       })
         .then(() => {
           alert("삭제 완료");

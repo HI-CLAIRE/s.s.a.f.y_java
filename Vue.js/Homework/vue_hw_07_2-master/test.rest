@@ -1,0 +1,23 @@
+GET http://localhost:9999/userapi/user
+###
+POST http://localhost:9999/userapi/user
+Content-Type: application/json
+
+{
+  "id": "22221",
+  "password": "1",
+  "name": "1",
+  "email": "1",
+  "age": 1
+}
+###
+POST http://localhost:9999/userapi/user
+Content-Type: application/x-www-form-urlencoded
+
+id=3333
+&password=222
+&name=222
+&email=2222
+&age=22
+###
+GET http://localhost:9999/userapi/user/search?key=name&word=2&orderBy=name&orderByDir=DESC

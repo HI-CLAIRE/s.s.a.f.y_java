@@ -24,12 +24,12 @@ export default {
     },
     login(user) {
       // user 정보 요청 api 주소
-      const API_URL = `http://localhost:9999/userapi/_____________`;
+      const API_URL = `http://localhost:9999/userapi/user/${user.id}`;
 
       // axios 요청 (Spring Boot Rest API 참고)
       axios({
-        url: _____________,
-        method: "_____________",
+        url: API_URL,
+        method: "get",
       })
         .then((res) => {
           this.user = res.data;

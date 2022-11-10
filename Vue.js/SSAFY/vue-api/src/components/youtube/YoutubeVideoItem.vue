@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     clickVideo() {
-      this.$emit('click-video', this.video);
+      this.$store.dispatch("clickVideo", this.video)
     }
   }
 }

@@ -56,11 +56,11 @@ export default {
     const pathName = new URL(document.location).pathname.split("/");
     const id = pathName[pathName.length - 1];
     // user 수정 요청 api 주소
-    const API_URL = `http://localhost:9999/userapi/_____________`;
+    const API_URL = `http://localhost:9999/userapi/user/${id}`;
     // axios 요청 (Spring Boot Rest API 참고)
     axios({
-      url: _____________,
-      method: "_____________",
+      url: API_URL,
+      method: "get",
     })
       .then((res) => {
         this.$set(this.user, "id", res.data.id);

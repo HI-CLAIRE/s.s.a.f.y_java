@@ -8,23 +8,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import YoutubeVideoItem from '@/components/youtube/YoutubeVideoItem.vue'
 
 export default {
   name: "YoutubeSearchResult",
-  props: {
-    videos: {
-      type: Array,
-      required: true,
-    }
-  },
   components: {
     YoutubeVideoItem,
   },
-  methods: {
-    clickVideo(value) {
-      console.log(value);
-    }
+  computed: {
+    ...mapState(['videos'])
   }
 }
 </script>

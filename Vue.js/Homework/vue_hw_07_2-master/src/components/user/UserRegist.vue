@@ -54,7 +54,7 @@ export default {
         age: this.age,
         img: "#",
       };
-
+      console.log(user)
       this.$emit("create-user", user);
     },
   },
