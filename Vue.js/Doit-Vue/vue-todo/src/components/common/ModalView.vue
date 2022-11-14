@@ -1,6 +1,6 @@
 <template>
-    <Transition name="modal">
-        <div v-if="show" class="modal-mask">
+    <transition name="modal">
+        <div v-if="true" class="modal-mask">
             <div class="modal-wrapper">
                 <div class="modal-container">
                     <div class="modal-header">
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-    </Transition>
+    </transition>
 </template>
 
 <script>
