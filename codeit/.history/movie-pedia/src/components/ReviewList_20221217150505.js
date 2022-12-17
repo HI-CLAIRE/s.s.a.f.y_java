@@ -1,0 +1,18 @@
+// reviewListItem 컴포넌트 만들기
+// 배열의 각 요소를 prop으로 내려주기
+function ReviewListItem({ item }) {
+  return (
+    <div className="ReviewListItem">
+      <img src={item.imgUrl} alt={item.}>
+    </div>
+  )
+}
+
+// map이라는 배열 메소드를 사용해서 각 요소 렌더링하기
+function ReviewList({ items }) {
+  return <ul>{items.map((item)=> {
+    return <li>{item.title}</li>;
+  })}</ul>;
+}
+
+export default ReviewList;
