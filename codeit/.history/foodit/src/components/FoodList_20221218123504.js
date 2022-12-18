@@ -14,6 +14,7 @@ function FoodListItem({ item, onDelete }) {
 }
 
 function FoodList({items, onDelete}) {
+  console.log(items);
   return (
     <ul>
       {items.map((item) => {
