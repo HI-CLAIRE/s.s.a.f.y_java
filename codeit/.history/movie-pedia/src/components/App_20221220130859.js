@@ -22,7 +22,7 @@ function App() {
   // response body에 있는 reviews라는 값을 Destructuring한 다음에 State 변경
   const handleLoadClick = async () => {
     const { reviews } = await getReviews();
-    setItems(reviews);
+    setItem(reviews);
   }
 
   return (

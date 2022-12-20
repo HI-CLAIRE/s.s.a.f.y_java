@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { getReviews } from "../api";
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItem] = useState([]);
   const [order, setOrder ] = useState('createdAt');
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
@@ -16,13 +16,13 @@ function App() {
   // 새로운 배열값을 리액트가 재렌더링하면 화면에 반영이 됨(state 사용)
   const handleDelete = (id) => {
     const nextItems = items.filter((item) => item.id !== id);
-    setItems(nextItems);
+    setItem(nextItems);
   }
 
   // response body에 있는 reviews라는 값을 Destructuring한 다음에 State 변경
   const handleLoadClick = async () => {
     const { reviews } = await getReviews();
-    setItems(reviews);
+    sortedItems(reviews);
   }
 
   return (
@@ -32,7 +32,7 @@ function App() {
         <button onClick={handleBestClick}>베스트순</button>
       </div>
       <ReviewList items={sortedItems} onDelete={handleDelete} />
-      <button onClick={handleLoadClick}>불러오기</button>
+      <button>불러오기</button>
     </div>
   );
 }
